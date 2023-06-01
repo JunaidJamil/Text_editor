@@ -9,6 +9,24 @@
     .main{
         text-align: center;
     }
+    #content{
+        margin-top: 20px;
+        box-shadow:  0px 0px 5px 0 grey;    
+        outline: none;
+        min-height: 300px;    
+    }
+    .bold{
+
+  font-weight: bolder;
+}
+
+.italic{
+  font-style: italic;
+}
+
+.underline{
+  text-decoration: underline;
+}
 </style>
 </head>
 
@@ -16,14 +34,88 @@
     <div class="main">
  <div> <h1>Text Editor</h1></div>
 
-<button>Bold</button>
-<button>Italic</button>
-<button>Underlne</button>
-<button>Align Center</button>
-<button>Clear</button>
+<button onclick="bld()">Bold</button>
+<button onclick="ita()">Italic</button>
+<button onclick="underline()">Underlne</button>
+<button onclick="Ac1()">center</button>
+<button onclick="Ac()">right</button>
+<button onclick="Ac2()">left</button>
+<button onclick="up()">Uppercase</button>
+<button onclick="low()">Lowercase</button>
+<button onclick="cap()">capitalize</button>
+<button onclick="clr()">Clear</button>
+<input type="range" name="" id="sizer" min="10" max="100" oninput="fontout.value =fontinp.value"/>
+<output id="fontout">10</output>
+<button onclick="Fs()">Font size</button>
+ 
+
+
 <br>
-    <textarea name="" id="" cols="60" rows="30"></textarea>
+    <textarea name="" id="content" cols="60" rows="30"></textarea>
+<!-- <div id="content" contenteditable="true" spellcheck="false"> -->
+
 </div>
+
+</div>
+
+
+<script>
+    
+    let fact = document.getElementById("content");
+    function bld(){
+      fact.classList.toggle('bold');
+    }
+     
+    function ita(){
+         fact.classList.toggle('italic');
+    }
+
+   function underline() {
+
+ fact.classList.toggle('underline');
+}
+function Ac1(){
+    fact.style.textAlign="center"
+}
+
+    function Ac(){
+        fact.style.textAlign= "right"
+    }
+    function Ac2(){
+     fact.style.textAlign= "left"
+    }
+
+    function Fs(){
+       let sizer = document.getElementById('sizer').value;
+  document.getElementById('fact').style.fontSize = sizer;
+    }
+
+    function clr(){
+   document.getElementById("content").value = " "
+
+    }
+    function up() {
+
+  document.getElementById('content').style.textTransform = "uppercase";
+}
+
+function low() {
+
+  document.getElementById('content').style.textTransform = "lowercase";
+}
+
+function Cap() {
+
+  document.getElementById('content').style.textTransform = "capitalize";
+
+}
+
+</script>
+
+
+
+
+
 </body>
 
 </html>
